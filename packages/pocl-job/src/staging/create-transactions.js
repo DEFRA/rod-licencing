@@ -19,6 +19,7 @@ export const createTransactions = async xmlFilePath => {
   await transform(xmlFilePath, async function * (source) {
     for await (const data of source) {
       if (!state.processedIds.has(data.id)) {
+        debug('POCL transaction data', data)
         state.processedIds.add(data.id)
         state.buffer.push(data)
         if (state.buffer.length === MAX_CREATE_TRANSACTION_BATCH_SIZE) {
