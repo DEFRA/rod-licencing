@@ -1,4 +1,3 @@
-import { salesApi } from '@defra-fish/connectors-lib'
 import { countries } from '../refdata-helper.js'
 
 jest.mock('@defra-fish/connectors-lib', () => ({
@@ -36,20 +35,10 @@ describe('Countries list', () => {
 
   it('Lists countries in correct order', async () => {
     const [first, second, third, fourth, fifth] = await countries.getAll()
-    expect(first).toEqual(
-      expect.objectContaining({ code: 'GB-ENG', name: 'England' })
-    )
-    expect(second).toEqual(
-      expect.objectContaining({ code: 'GB-WLS', name: 'Wales' })
-    )
-    expect(third).toEqual(
-      expect.objectContaining({ code: 'GB-SCT', name: 'Scotland' })
-    )
-    expect(fourth).toEqual(
-      expect.objectContaining({ code: 'GB-NIR', name: 'Northern Ireland' })
-    )
-    expect(fifth).toEqual(
-      expect.objectContaining({ code: 'GB', name: 'United Kingdom' })
-    )
+    expect(first).toEqual(expect.objectContaining({ code: 'GB-ENG', name: 'England' }))
+    expect(second).toEqual(expect.objectContaining({ code: 'GB-WLS', name: 'Wales' }))
+    expect(third).toEqual(expect.objectContaining({ code: 'GB-SCT', name: 'Scotland' }))
+    expect(fourth).toEqual(expect.objectContaining({ code: 'GB-NIR', name: 'Northern Ireland' }))
+    expect(fifth).toEqual(expect.objectContaining({ code: 'GB', name: 'United Kingdom' }))
   })
 })

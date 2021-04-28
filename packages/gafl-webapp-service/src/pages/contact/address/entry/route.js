@@ -19,7 +19,7 @@ const validator = Joi.object({
 }).options({ abortEarly: false, allowUnknown: true })
 
 export const getCountryDropDownOptions = async () => {
-  const options = await countries.getAll();
+  const options = await countries.getAll()
   return options.filter(country => country.code !== 'GB')
 }
 

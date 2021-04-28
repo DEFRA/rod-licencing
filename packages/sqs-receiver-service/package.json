@@ -1,6 +1,6 @@
 {
   "name": "@defra-fish/sqs-receiver-service",
-  "version": "1.9.0",
+  "version": "1.10.0-rc.0",
   "description": "SQS Receiver service",
   "type": "module",
   "engines": {
@@ -35,7 +35,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@defra-fish/connectors-lib": "1.9.0",
+    "@defra-fish/connectors-lib": "1.10.0-rc.0",
     "debug": "^4.3.1",
     "joi": "^17.3.0",
     "node-fetch": "^2.6.1",

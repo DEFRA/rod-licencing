@@ -19,7 +19,7 @@ jest.mock('@defra-fish/connectors-lib', () => {
   return {
     AWS: actual.AWS,
     salesApi: {
-      ...Object.keys(actual.salesApi).reduce((acc, k) => ({ ...acc, [k]: jest.fn(async () => { }) }), {})
+      ...Object.keys(actual.salesApi).reduce((acc, k) => ({ ...acc, [k]: jest.fn(async () => {}) }), {})
     }
   }
 })
@@ -129,7 +129,7 @@ describe('ftp-to-s3', () => {
   it('logs and propogates errors back up the stack', async () => {
     const testError = new Error('Test error')
     mockedFtpMethods.list.mockRejectedValue(testError)
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => { })
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
     await expect(ftpToS3).rejects.toThrow(testError)
     expect(consoleErrorSpy).toHaveBeenCalled()
   })

@@ -29,7 +29,7 @@ const debug = db('sales:transactions')
  * @param id
  * @returns {Promise<void>}
  */
-export async function processQueue({ id }) {
+export async function processQueue ({ id }) {
   debug('Processing message from queue for staging id %s', id)
   const entities = []
   const transactionRecord = await retrieveStagedTransaction(id)

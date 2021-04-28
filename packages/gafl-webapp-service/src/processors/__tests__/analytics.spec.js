@@ -1,7 +1,6 @@
 import { initialiseAnalyticsSessionData, getTrackingProductDetailsFromTransaction, getAffiliation } from '../analytics.js'
 import db from 'debug'
 
-const mockDebug = jest.fn()
 jest.mock('debug', () => jest.fn(() => jest.fn()))
 
 describe('initialiseAnalyticsSessionData', () => {
@@ -9,7 +8,7 @@ describe('initialiseAnalyticsSessionData', () => {
   const fakeCacheDecorator = jest.fn(() => ({ helpers: { status: { set: fakeCacheSetter } } }))
   let fakeDebug, firstDbCall
   beforeAll(() => {
-    [[firstDbCall]] = db.mock.calls
+    ;[[firstDbCall]] = db.mock.calls
     fakeDebug = db.mock.results[0].value
     console.log('fakeDebug', fakeDebug)
   })
@@ -35,37 +34,38 @@ describe('initialiseAnalyticsSessionData', () => {
           gaClientId
         })
       )
-    })
-
-  it.each([
-    '!@£$%^&*()œ∑´®†¥¨^øåß∂ƒ©˙∆˚', '¡€#¢∞§¶•ªø^¨¥©˙∆˚˙©†ƒ®', '1$2$345$678', '1,2,345,678', '523510731.1602852296'
-  ])('unexpected _ga formats fail gracefully', async _ga => {
-    const fakeRequest = {
-      query: { _ga },
-      cache: fakeCacheDecorator
     }
-    let err
-    try {
+  )
+
+  it.each(['!@£$%^&*()œ∑´®†¥¨^øåß∂ƒ©˙∆˚', '¡€#¢∞§¶•ªø^¨¥©˙∆˚˙©†ƒ®', '1$2$345$678', '1,2,345,678', '523510731.1602852296'])(
+    'unexpected _ga formats fail gracefully',
+    async _ga => {
+      const fakeRequest = {
+        query: { _ga },
+        cache: fakeCacheDecorator
+      }
+      let err
+      try {
+        await initialiseAnalyticsSessionData(fakeRequest)
+      } catch (e) {
+        err = e
+      }
+      expect(err).toBeUndefined()
+    }
+  )
+
+  it.each(['!@£$%^&*()œ∑´®†¥¨^øåß∂ƒ©˙∆˚', '¡€#¢∞§¶•ªø^¨¥©˙∆˚˙©†ƒ®', '1$2$345$678', '1,2,345,678', '523510731.1602852296'])(
+    'unexpected _ga formats are logged',
+    async _ga => {
+      const fakeRequest = {
+        query: { _ga },
+        cache: fakeCacheDecorator
+      }
+
       await initialiseAnalyticsSessionData(fakeRequest)
-    } catch (e) {
-      err = e
+      expect(fakeDebug).toHaveBeenCalledWith(expect.stringContaining(_ga))
     }
-    expect(err).toBeUndefined()
-  })
-
-  it.each([
-    '!@£$%^&*()œ∑´®†¥¨^øåß∂ƒ©˙∆˚', '¡€#¢∞§¶•ªø^¨¥©˙∆˚˙©†ƒ®', '1$2$345$678', '1,2,345,678', '523510731.1602852296'
-  ])('unexpected _ga formats are logged', async _ga => {
-    const fakeRequest = {
-      query: { _ga },
-      cache: fakeCacheDecorator
-    }
-
-    await initialiseAnalyticsSessionData(fakeRequest)
-    expect(fakeDebug).toHaveBeenCalledWith(
-      expect.stringContaining(_ga)
-    )
-  })
+  )
 
   it('retrieves campaign attribution from the query string parameters and stores these on the session', async () => {
     const fakeRequest = {

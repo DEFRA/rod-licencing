@@ -1,6 +1,6 @@
 {
   "name": "@defra-fish/business-rules-lib",
-  "version": "1.9.0",
+  "version": "1.10.0-rc.0",
   "description": "Shared business rules for the rod licensing digital services",
   "type": "module",
   "engines": {

@@ -19,7 +19,7 @@ import {
 import { ADULT_TODAY, dobHelper } from '../../../../../__mocks__/test-utils-business-rules'
 import { licenceToStart } from '../../../../licence-details/licence-to-start/update-transaction'
 import { licenseTypes } from '../../../../licence-details/licence-type/route'
-import { getCountryDropDownOptions} from '../route'
+import { getCountryDropDownOptions } from '../route'
 
 beforeAll(d => start(d))
 beforeAll(d => initialize(d))

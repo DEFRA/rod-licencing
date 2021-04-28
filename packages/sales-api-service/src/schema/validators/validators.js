@@ -6,7 +6,7 @@ import {
 import { findById, findByAlternateKey, PermitConcession, CacheableOperation } from '@defra-fish/dynamics-lib'
 import Joi from 'joi'
 
-export function buildJoiOptionSetValidator(optionSetName, exampleValue) {
+export function buildJoiOptionSetValidator (optionSetName, exampleValue) {
   return Joi.string()
     .trim()
     .required()
@@ -15,7 +15,7 @@ export function buildJoiOptionSetValidator(optionSetName, exampleValue) {
     .example(exampleValue)
 }
 
-export function createOptionSetValidator(optionSetName) {
+export function createOptionSetValidator (optionSetName) {
   return async value => {
     if (value) {
       const option = await getGlobalOptionSetValue(optionSetName, value)
@@ -27,7 +27,7 @@ export function createOptionSetValidator(optionSetName) {
   }
 }
 
-export function createReferenceDataEntityValidator(entityType) {
+export function createReferenceDataEntityValidator (entityType) {
   return async value => {
     if (value) {
       const entity = await getReferenceDataForEntityAndId(entityType, value)
@@ -47,7 +47,7 @@ export function createReferenceDataEntityValidator(entityType) {
  * @param {boolean} [negate] if true then validates that the entity does not exist, defaults to false
  * @returns {function: Promise<>}
  */
-export function createEntityIdValidator(entityType, { cache, negate } = { cache: false, negate: false }) {
+export function createEntityIdValidator (entityType, { cache, negate } = { cache: false, negate: false }) {
   return async value => {
     if (value) {
       const check = new CacheableOperation(
@@ -76,7 +76,7 @@ export function createEntityIdValidator(entityType, { cache, negate } = { cache:
  * @param {boolean} [negate] if true then validates that the entity does not exist, defaults to false
  * @returns {function: Promise<>}
  */
-export function createAlternateKeyValidator(entityType, { cache, negate } = { cache: false, negate: false }) {
+export function createAlternateKeyValidator (entityType, { cache, negate } = { cache: false, negate: false }) {
   if (!entityType.definition.alternateKey) {
     throw new Error(`The entity ${entityType.name} does not support alternate key lookups`)
   }
@@ -104,7 +104,7 @@ export function createAlternateKeyValidator(entityType, { cache, negate } = { ca
  * Create a validator that will check that the provided concessionId (if present) is valid for the given permitId
  * @returns {function(*): undefined}
  */
-export function createPermitConcessionValidator() {
+export function createPermitConcessionValidator () {
   return async transaction => {
     if (transaction) {
       for (const permission of transaction.permissions) {
@@ -127,7 +127,12 @@ const validatePermissionConcession = async (permission, transaction) => {
   const concessionsRequiredForPermit = permitConcessions.filter(pc => pc.permitId === permission.permitId)
   const hasConcessionProofs = permission.concessions && permission.concessions.length
   // Check that the concession is valid for the given permitId and that if a permit requires a concession reference that one is defined
-  if (concessionsRequiredForPermit.length && !hasConcessionProofs && transaction.dataSource !== 'Post Office Sales' && transaction.dataSource !== 'DDE File') {
+  if (
+    concessionsRequiredForPermit.length &&
+    !hasConcessionProofs &&
+    transaction.dataSource !== 'Post Office Sales' &&
+    transaction.dataSource !== 'DDE File'
+  ) {
     throw new Error(`The permit '${permission.permitId}' requires proof of concession however none were supplied`)
   } else if (!concessionsRequiredForPermit.length && hasConcessionProofs) {
     throw new Error(`The permit '${permission.permitId}' does not allow concessions but concession proofs were supplied`)

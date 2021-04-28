@@ -1,6 +1,6 @@
 {
   "name": "@defra-fish/pocl-job",
-  "version": "1.9.0",
+  "version": "1.10.0-rc.0",
   "description": "Post Office Counter Licence sales processor",
   "type": "module",
   "engines": {
@@ -35,8 +35,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@defra-fish/business-rules-lib": "1.9.0",
-    "@defra-fish/connectors-lib": "1.9.0",
+    "@defra-fish/business-rules-lib": "1.10.0-rc.0",
+    "@defra-fish/connectors-lib": "1.10.0-rc.0",
     "commander": "^6.2.1",
     "debug": "^4.3.1",
     "filesize": "^6.1.0",

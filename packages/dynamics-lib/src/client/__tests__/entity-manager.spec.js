@@ -71,16 +71,13 @@ describe('entity manager', () => {
       const result = await persist([t], 'foo')
       expect(MockDynamicsWebApi.prototype.createRequest).toHaveBeenCalled()
       expect(MockDynamicsWebApi.prototype.executeBatch).toHaveBeenCalledWith(
-        expect.objectContaining(
-          {
-            impersonateAAD: 'foo'
-          }
-        )
+        expect.objectContaining({
+          impersonateAAD: 'foo'
+        })
       )
       expect(result).toHaveLength(1)
       expect(result[0]).toEqual(resultUuid)
     })
-
 
     it('throws an error object on failure', async () => {
       const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn())
@@ -440,7 +437,7 @@ describe('entity manager', () => {
         /**
          * @returns {EntityDefinition} the definition providing mappings between Dynamics entity and the local entity
          */
-        static get definition() {
+        static get definition () {
           return SameEntity._definition
         }
 
@@ -448,11 +445,11 @@ describe('entity manager', () => {
          * The testVal field
          * @type {string}
          */
-        get testVal() {
+        get testVal () {
           return super._getState('testVal')
         }
 
-        set testVal(testVal) {
+        set testVal (testVal) {
           super._setState('testVal', testVal)
         }
       }
@@ -598,7 +595,7 @@ describe('entity manager', () => {
       MockDynamicsWebApi.__throwWithErrorOn('retrieveMultipleRequest')
       const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn())
       await expect(
-        executePagedQuery(new PredefinedQuery({ root: TestEntity, filter: "strval eq 'example'" }), () => { }, 1)
+        executePagedQuery(new PredefinedQuery({ root: TestEntity, filter: "strval eq 'example'" }), () => {}, 1)
       ).rejects.toThrow('Test error')
       expect(consoleErrorSpy).toHaveBeenCalled()
     })

@@ -174,7 +174,7 @@ describe('validators', () => {
 
     it('throws if attempting to create an alternate key validator using an object which does not support it', async () => {
       class TestNonAlternateKeyEntity extends BaseEntity {
-        static get definition() {
+        static get definition () {
           return new EntityDefinition(() => ({
             localName: 'TestNonAlternateKeyEntity',
             dynamicsCollection: 'TestNonAlternateKeyEntity',

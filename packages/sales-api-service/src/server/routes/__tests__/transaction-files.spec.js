@@ -64,15 +64,13 @@ describe('transaction files handler', () => {
         fileName: 'testnew.xml',
         fileSize: '5 KB'
       })
-      expect(persist).toHaveBeenCalledWith(
-        [
-          expect.objectContaining({
-            fileName: 'testnew.xml',
-            fileSize: '5 KB',
-            status: expect.objectContaining(await getGlobalOptionSetValue(PoclFile.definition.mappings.status.ref, 'Received and Pending'))
-          })
-        ]
-      )
+      expect(persist).toHaveBeenCalledWith([
+        expect.objectContaining({
+          fileName: 'testnew.xml',
+          fileSize: '5 KB',
+          status: expect.objectContaining(await getGlobalOptionSetValue(PoclFile.definition.mappings.status.ref, 'Received and Pending'))
+        })
+      ])
     })
 
     it('updates an transaction file for a given filename', async () => {

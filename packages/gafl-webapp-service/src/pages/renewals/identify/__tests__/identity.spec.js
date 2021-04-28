@@ -109,9 +109,10 @@ describe('The easy renewal identification page', () => {
     await injectWithCookies('GET', VALID_RENEWAL_PUBLIC)
     await injectWithCookies('GET', IDENTIFY.uri)
     const data = await injectWithCookies(
-      'POST', 
-      IDENTIFY.uri, 
-      Object.assign({ postcode: 'BS9 1HJ', referenceNumber: 'AAAAAA' }, dobHelper(ADULT_TODAY)))
+      'POST',
+      IDENTIFY.uri,
+      Object.assign({ postcode: 'BS9 1HJ', referenceNumber: 'AAAAAA' }, dobHelper(ADULT_TODAY))
+    )
     expect(data.statusCode).toBe(302)
     expect(data.headers.location).toBe(AUTHENTICATE.uri)
 

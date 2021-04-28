@@ -15,7 +15,7 @@ const { s3 } = AWS()
 const debug = db('pocl:transport')
 const sftp = new FtpClient()
 
-export async function ftpToS3() {
+export async function ftpToS3 () {
   try {
     debug('Connecting to SFTP endpoint at sftp://%s:%s%s', config.ftp.host, config.ftp.port, config.ftp.path)
     await sftp.connect(config.ftp)
@@ -37,7 +37,7 @@ export async function ftpToS3() {
   }
 }
 
-export async function storeS3Metadata(md5, fileSize, filename, s3Key, receiptMoment) {
+export async function storeS3Metadata (md5, fileSize, filename, s3Key, receiptMoment) {
   console.log(`Storing metadata for ${s3Key}`)
   await updateFileStagingTable({ filename, md5, fileSize, stage: FILE_STAGE.Pending, s3Key })
 

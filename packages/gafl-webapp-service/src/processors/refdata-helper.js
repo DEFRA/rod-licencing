@@ -8,19 +8,18 @@ const optionProc = c =>
 
 const local = {}
 
-const fetch = async () =>{
+const fetch = async () => {
   // Returns all countries from Dynamics
-  return optionProc(await salesApi.countries.getAll())
-    .sort((a, b) => {
-      const order = ['GB-ENG', 'GB-WLS', 'GB-SCT', 'GB-NIR', 'GB']
-      if (a.code.startsWith('GB')) {
-        if (b.code.startsWith('GB')) {
-          return order.indexOf(a.code) - order.indexOf(b.code)
-        }
-        return -1
+  return optionProc(await salesApi.countries.getAll()).sort((a, b) => {
+    const order = ['GB-ENG', 'GB-WLS', 'GB-SCT', 'GB-NIR', 'GB']
+    if (a.code.startsWith('GB')) {
+      if (b.code.startsWith('GB')) {
+        return order.indexOf(a.code) - order.indexOf(b.code)
       }
-      return 0
-    })
+      return -1
+    }
+    return 0
+  })
 }
 
 // Process the country code option set into a useful form - once
