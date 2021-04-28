@@ -59,6 +59,8 @@ async function createTransactionRecord (payload) {
     isRecurringPaymentSupported: true,
     ...payload
   }
+  console.log('SalesApi createTransactionRecord - payload', payload)
+  console.log('SalesApi createTransactionRecord - record', record)
 
   // Generate derived fields
   for (const permission of record.permissions) {

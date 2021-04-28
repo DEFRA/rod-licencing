@@ -103,7 +103,7 @@ export const Transaction = new Binding({
     const dataSource = getDataSource(children)
     const paymentSource = dataSource === DIRECT_DEBIT_DATASOURCE ? DIRECT_DEBIT_PAYMENTSOURCE : POST_OFFICE_DATASOURCE
 
-    return {
+    const transactionPayload = { //return {
       id: children[SerialNumber.element],
       createTransactionPayload: {
         dataSource,
@@ -147,6 +147,8 @@ export const Transaction = new Binding({
         }
       }
     }
+    console.log('POCL transaction mapping payload', transactionPayload)
+    return transactionPayload
   }
 })
 
