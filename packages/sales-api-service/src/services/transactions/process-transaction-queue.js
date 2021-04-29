@@ -161,6 +161,8 @@ const createTransactionJournal = async (transactionRecord, transactionEntity, ty
   journal.type = await getGlobalOptionSetValue(TransactionJournal.definition.mappings.type.ref, type)
   journal.bindToEntity(TransactionJournal.definition.relationships.transaction, transactionEntity)
   journal.bindToEntity(TransactionJournal.definition.relationships.transactionCurrency, currency)
+  debug('SalesApi createTransactionJournal - journal', journal)
+  debug('SalesApi createTransactionJournal - transactionRecord', transactionRecord)
   return journal
 }
 
