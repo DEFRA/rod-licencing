@@ -62,6 +62,9 @@ export async function processQueue ({ id }) {
     transactionRecord.transactionFile &&
       permission.bindToAlternateKey(Permission.definition.relationships.poclFile, transactionRecord.transactionFile)
 
+    console.log('this is the contact')
+    console.log(contact.postalFulfilment)
+    contact.postalFulfilment = true
     entities.push(contact, permission)
 
     if (recurringPayment && permit.isRecurringPaymentSupported) {
