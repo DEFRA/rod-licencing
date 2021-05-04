@@ -34,6 +34,9 @@ export async function finaliseTransaction ({ id, ...payload }) {
         .toISOString()
     permission.referenceNumber = await generatePermissionNumber(permission, transactionRecord.dataSource)
     permission.endDate = await calculateEndDate(permission)
+
+    console.log('finalise transaction')
+    console.log(JSON.stringify(permission))
   }
 
   const { Attributes: updatedRecord } = await docClient
