@@ -37,7 +37,7 @@
   "dependencies": {
     "@defra-fish/business-rules-lib": "1.10.0-rc.1",
     "@defra-fish/connectors-lib": "1.10.0-rc.1",
-    "@defra-fish/dynamics-lib": "digital_licence_11",
+    "@defra-fish/dynamics-lib": "../dynamics-lib",
     "@hapi/boom": "^9.1.1",
     "@hapi/hapi": "^20.0.3",
     "@hapi/inert": "^6.0.3",
