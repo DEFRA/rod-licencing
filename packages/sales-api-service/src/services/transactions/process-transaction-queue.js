@@ -63,9 +63,11 @@ export async function processQueue ({ id }) {
       permission.bindToAlternateKey(Permission.definition.relationships.poclFile, transactionRecord.transactionFile)
 
     console.log('this is the contact')
-    console.log(contact.postalFulfilment)
-    contact.postalFulfilment = true
+    console.log(contact)
     entities.push(contact, permission)
+
+    console.log('entities1')
+    console.log(JSON.stringify(entities))
 
     if (recurringPayment && permit.isRecurringPaymentSupported) {
       const paymentInstruction = new RecurringPaymentInstruction()
@@ -75,10 +77,13 @@ export async function processQueue ({ id }) {
       entities.push(paymentInstruction)
     }
 
+    console.log('entities2')
+    console.log(JSON.stringify(entities))
+
     for (const concession of concessions || []) {
       entities.push(await createConcessionProof(concession, permission))
     }
-    console.log('entities')
+    console.log('entities3')
     console.log(JSON.stringify(entities))
     console.log('before forful')
     console.log(permission)
