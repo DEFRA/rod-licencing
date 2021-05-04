@@ -1,7 +1,7 @@
 {
-  "name": "@defra-fish/sales-api-service",
+  "name": "@defra-fish/dynamics-lib",
   "version": "1.10.0-rc.1",
-  "description": "Rod Licensing Sales API",
+  "description": "Framework to support integration with dynamics",
   "type": "module",
   "engines": {
     "node": ">=14"
@@ -9,12 +9,11 @@
   "keywords": [
     "rod",
     "licensing",
-    "sales",
-    "api"
+    "dynamics"
   ],
   "author": "DEFRA",
   "license": "SEE LICENSE IN LICENSE",
-  "main": "src/sales-api-service.js",
+  "main": "src/index.js",
   "directories": {
     "lib": "src",
     "test": "__tests__"
@@ -25,30 +24,23 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/DEFRA/rod-licensing.git",
-    "directory": "packages/sales-api-service"
+    "directory": "packages/dynamics-lib"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "start": "node src/sales-api-service.js",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@defra-fish/business-rules-lib": "1.10.0-rc.1",
-    "@defra-fish/connectors-lib": "1.10.0-rc.1",
-    "@defra-fish/dynamics-lib": "./dynamics-lib",
-    "@hapi/boom": "^9.1.1",
-    "@hapi/hapi": "^20.0.3",
-    "@hapi/inert": "^6.0.3",
-    "@hapi/vision": "^6.0.1",
+    "cache-manager": "^3.4.0",
+    "cache-manager-ioredis": "^2.1.0",
     "debug": "^4.3.1",
-    "dot-prop": "^6.0.1",
-    "hapi-and-healthy": "^7.0.7",
-    "hapi-swagger": "^14.1.0",
-    "ioredis": "^4.19.4",
+    "dynamics-web-api": "1.6.13",
     "joi": "^17.3.0",
     "moment": "^2.29.1",
+    "pluralize": "^8.0.0",
+    "simple-oauth2": "^4.2.0",
     "uuid": "^8.3.2"
   }
 }
