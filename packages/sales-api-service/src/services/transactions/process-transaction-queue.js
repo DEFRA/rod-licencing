@@ -77,6 +77,7 @@ export async function processQueue ({ id }) {
     }
     console.log('before forful')
     console.log(permission)
+    console.log(contact)
     permit.isForFulfilment && entities.push(await createFulfilmentRequest(permission))
   }
 
