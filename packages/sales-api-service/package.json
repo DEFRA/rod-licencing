@@ -32,12 +32,13 @@
   },
   "scripts": {
     "start": "node src/sales-api-service.js",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "postinstall": "mkdir rod-licensing; cd rod-licensing; git init; git remote add -f origin git@github.com:DEFRA/rod-licensing.git; git config core.sparseCheckout true; echo \"packages/dynamics-lib\" >> .git/info/sparse-checkout; git pull --depth=1 origin master; cd ..; npm i ./rod-licensing/packages/dynamics-lib/"
   },
   "dependencies": {
     "@defra-fish/business-rules-lib": "1.10.0-rc.1",
     "@defra-fish/connectors-lib": "1.10.0-rc.1",
-    "@defra-fish/dynamics-lib": "../dynamics-lib",
+    "@defra-fish/dynamics-lib": "1.10.0-rc.1",
     "@hapi/boom": "^9.1.1",
     "@hapi/hapi": "^20.0.3",
     "@hapi/inert": "^6.0.3",
