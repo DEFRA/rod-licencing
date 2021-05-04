@@ -34,6 +34,9 @@ export async function processQueue ({ id }) {
   const entities = []
   const transactionRecord = await retrieveStagedTransaction(id)
 
+  console.log('transaction Record')
+  console.log(transactionRecord)
+
   const { transaction, chargeJournal, paymentJournal } = await createTransactionEntities(transactionRecord)
   entities.push(transaction, chargeJournal, paymentJournal)
 

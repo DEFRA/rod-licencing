@@ -34,6 +34,8 @@ export const resolveContactPayload = async payload => {
   if (id) {
     // Resolve an existing contact id
     contact = await findById(Contact, id)
+    console.log('this is contact from service')
+    console.log(contact)
     debug('Resolved existing contact record for id=%s - exists=%s', id, contact !== null)
   } else {
     const lookup = new Contact()
@@ -49,7 +51,11 @@ export const resolveContactPayload = async payload => {
       contact = candidates[0]
     }
   }
+  console.log('contact before primitives')
+  console.log(primitives)
   contact = Object.assign(contact || new Contact(), primitives)
+  console.log('contact with primitives')
+  console.log(contact)
 
   contact.preferredMethodOfConfirmation = await getGlobalOptionSetValue(
     Contact.definition.mappings.preferredMethodOfConfirmation.ref,
