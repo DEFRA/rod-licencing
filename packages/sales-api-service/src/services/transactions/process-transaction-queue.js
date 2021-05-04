@@ -78,6 +78,8 @@ export async function processQueue ({ id }) {
     for (const concession of concessions || []) {
       entities.push(await createConcessionProof(concession, permission))
     }
+    console.log('entities')
+    console.log(JSON.stringify(entities))
     console.log('before forful')
     console.log(permission)
     console.log(contact)
