@@ -35,8 +35,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@defra-fish/connectors-lib": "1.13.0-rc.7",
-    "@defra-fish/dynamics-lib": "1.13.0-rc.7",
+    "@defra-fish/connectors-lib": "1.13.0-rc.4",
+    "@defra-fish/dynamics-lib": "1.13.0-rc.4",
     "commander": "^6.2.1",
     "debug": "^4.3.1",
     "merge2": "^1.4.1",
