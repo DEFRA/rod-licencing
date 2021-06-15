@@ -34,7 +34,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@airbrake/node": "^1.4.2",
+    "@airbrake/node": "^2.1.5",
     "aws-sdk": "^2.922.0",
     "debug": "^4.3.1",
     "ioredis": "^4.27.5",
