@@ -37,7 +37,7 @@
   "dependencies": {
     "@defra-fish/business-rules-lib": "1.14.0",
     "@defra-fish/connectors-lib": "1.14.0",
-    "commander": "^7.2.0",
+    "commander": "^8.0.0",
     "debug": "^4.3.1",
     "filesize": "^6.3.0",
     "md5-file": "^5.0.0",
