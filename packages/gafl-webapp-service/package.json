@@ -38,7 +38,7 @@
   "dependencies": {
     "@defra-fish/business-rules-lib": "1.14.0",
     "@defra-fish/connectors-lib": "1.14.0",
-    "@defra/hapi-gapi": "^1.1.0",
+    "@defra/hapi-gapi": "^1.2.0",
     "@hapi/boom": "^9.1.2",
     "@hapi/catbox-redis": "^6.0.2",
     "@hapi/cookie": "^11.0.2",
