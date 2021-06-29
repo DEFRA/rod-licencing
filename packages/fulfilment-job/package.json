@@ -43,6 +43,6 @@
     "moment": "^2.29.1",
     "openpgp": "^5.0.0-1",
     "pluralize": "^8.0.0",
-    "ssh2-sftp-client": "^6.0.1"
+    "ssh2-sftp-client": "^7.0.0"
   }
 }
