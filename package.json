@@ -38,7 +38,7 @@
     "@types/hapi__hapi": "^20.0.8",
     "@types/jest": "^26.0.23",
     "aws-sdk": "^2.922.0",
-    "babel-jest": "^26.6.3",
+    "babel-jest": "^27.0.6",
     "clone-deep": "^4.0.1",
     "dynamics-web-api": "1.7.3",
     "eslint": "^7.28.0",
