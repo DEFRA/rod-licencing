@@ -73,7 +73,7 @@ export const stage = async xmlFilePath => {
     totalCount,
     successCount,
     errorCount,
-    status: (errorCount && DYNAMICS_IMPORT_STAGE.Failed) || DYNAMICS_IMPORT_STAGE.Processed,
+    status: (errorCount && DYNAMICS_IMPORT_STAGE.ProcessedWithWarnings) || DYNAMICS_IMPORT_STAGE.Processed,
     notes: `Completed processing at ${moment().toISOString()}`
   })
 }

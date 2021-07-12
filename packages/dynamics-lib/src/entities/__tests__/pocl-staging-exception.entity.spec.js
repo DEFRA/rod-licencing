@@ -1,8 +1,8 @@
 import { PoclStagingException } from '../pocl-staging-exception.entity.js'
 import { Permission, retrieveGlobalOptionSets } from '../..'
 
-let optionSetData
 describe('pocl staging exception entity', () => {
+  let optionSetData
   beforeAll(async () => {
     optionSetData = await retrieveGlobalOptionSets().cached()
   })

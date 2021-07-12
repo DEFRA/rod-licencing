@@ -7,7 +7,7 @@ import db from 'debug'
 const debug = db('pocl:staging')
 
 /**
- * Create the transactions in the Sales API by proessing the file at the given path
+ * Create the transactions in the Sales API by processing the file at the given path
  *
  * @param xmlFilePath the full file path to the POCL XML file
  * @returns {Promise<{failed: number, succeeded: number}>}
@@ -127,9 +127,11 @@ const processFailed = async (filename, failed) => {
         notes: 'Failed to create the transaction in the Sales API',
         type: 'Failure',
         transactionFile: filename
-      }
+      },
+      record
     })
   }
+
   const recordUpdates = failed.map(({ record }) => record)
   await updateRecordStagingTable(filename, recordUpdates)
 }

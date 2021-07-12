@@ -19,7 +19,30 @@ const schemaObject = {
       .external(createAlternateKeyValidator(PoclFile))
       .required(),
     permissionId: Joi.string()
-  })
+  }),
+  record: Joi.object({
+    id: Joi.string(),
+    createTransactionPayload: Joi.object({
+      dataSource: Joi.string(),
+      serialNumber: Joi.string(),
+      permissions: Joi.array()
+    }),
+    finaliseTransactionPayload: Joi.object({
+      payment: Joi.object({
+        timestamp: Joi.string(),
+        amount: Joi.number(),
+        source: Joi.string(),
+        channelId: Joi.string(),
+        method: Joi.string()
+      })
+    }),
+    stage: Joi.string(),
+    createTransactionError: Joi.object({
+      statusCode: Joi.number(),
+      error: Joi.string(),
+      message: Joi.string()
+    })
+  }).optional()
 }
 
 /**

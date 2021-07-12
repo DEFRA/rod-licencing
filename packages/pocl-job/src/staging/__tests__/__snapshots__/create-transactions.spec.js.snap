@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create-transactions handles exceptions 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "record": Object {
+          "createTransactionError": Object {
+            "error": "Fake error",
+            "message": "Fake error message",
+            "statusCode": 422,
+          },
+          "createTransactionPayload": Object {
+            "dataSource": "Post Office Sales",
+            "permissions": Array [
+              Object {
+                "issueDate": "2020-07-01T12:00:00.000Z",
+                "licensee": Object {
+                  "birthDate": "1975-08-26",
+                  "country": "England",
+                  "email": "cleaver321@email.com",
+                  "firstName": "Daniel",
+                  "lastName": "Cleaver",
+                  "mobilePhone": "07763 722080",
+                  "postcode": "PL5 2AA",
+                  "preferredMethodOfConfirmation": "Email",
+                  "preferredMethodOfNewsletter": "Email",
+                  "preferredMethodOfReminder": "Email",
+                  "premises": "65",
+                  "street": "Groveside Close",
+                  "town": "Carshalton",
+                },
+                "permitId": "test",
+                "startDate": "2020-07-01T14:00:00.000Z",
+              },
+            ],
+            "serialNumber": "SERIAL 2",
+          },
+          "finaliseTransactionPayload": Object {
+            "payment": Object {
+              "amount": 82,
+              "channelId": "21995X",
+              "method": "Stamps",
+              "source": "Post Office Sales",
+              "timestamp": "2020-07-01T12:00:00.000Z",
+            },
+          },
+          "id": "SERIAL 2",
+          "stage": "Transaction Creation Failed",
+        },
+        "transactionFileException": Object {
+          "description": "{
+  \\"statusCode\\": 422,
+  \\"error\\": \\"Fake error\\",
+  \\"message\\": \\"Fake error message\\"
+}",
+          "json": "{
+  \\"id\\": \\"SERIAL 2\\",
+  \\"createTransactionPayload\\": {
+    \\"dataSource\\": \\"Post Office Sales\\",
+    \\"serialNumber\\": \\"SERIAL 2\\",
+    \\"permissions\\": [
+      {
+        \\"licensee\\": {
+          \\"firstName\\": \\"Daniel\\",
+          \\"lastName\\": \\"Cleaver\\",
+          \\"birthDate\\": \\"1975-08-26\\",
+          \\"email\\": \\"cleaver321@email.com\\",
+          \\"mobilePhone\\": \\"07763 722080\\",
+          \\"premises\\": \\"65\\",
+          \\"street\\": \\"Groveside Close\\",
+          \\"town\\": \\"Carshalton\\",
+          \\"postcode\\": \\"PL5 2AA\\",
+          \\"country\\": \\"England\\",
+          \\"preferredMethodOfConfirmation\\": \\"Email\\",
+          \\"preferredMethodOfNewsletter\\": \\"Email\\",
+          \\"preferredMethodOfReminder\\": \\"Email\\"
+        },
+        \\"issueDate\\": \\"2020-07-01T12:00:00.000Z\\",
+        \\"startDate\\": \\"2020-07-01T14:00:00.000Z\\",
+        \\"permitId\\": \\"test\\"
+      }
+    ]
+  },
+  \\"finaliseTransactionPayload\\": {
+    \\"payment\\": {
+      \\"timestamp\\": \\"2020-07-01T12:00:00.000Z\\",
+      \\"amount\\": 82,
+      \\"source\\": \\"Post Office Sales\\",
+      \\"channelId\\": \\"21995X\\",
+      \\"method\\": \\"Stamps\\"
+    }
+  },
+  \\"stage\\": \\"Transaction Creation Failed\\",
+  \\"createTransactionError\\": {
+    \\"statusCode\\": 422,
+    \\"error\\": \\"Fake error\\",
+    \\"message\\": \\"Fake error message\\"
+  }
+}",
+          "name": "test-2-records.xml: FAILED-CREATE-SERIAL 2",
+          "notes": "Failed to create the transaction in the Sales API",
+          "transactionFile": "test-2-records.xml",
+          "type": "Failure",
+        },
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;

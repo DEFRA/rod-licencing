@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pocl staging exception entity maps from dynamics has the expected data 1`] = `
+Object {
+  "amount": 30,
+  "birthDate": "1989-07-01",
+  "channelId": "948594",
+  "concessions": "[{\\"type\\":\\"Blue Badge\\",\\"referenceNumber\\":\\"123456789\\"}]",
+  "country": "GB",
+  "dataSource": Object {
+    "description": "Post Office Sales",
+    "id": 910400000,
+    "label": "Post Office Sales",
+  },
+  "email": "daniel-ricc@example.com",
+  "firstName": "Daniel",
+  "id": "91f15d18-0aa4-ea11-a812-000d3a64905b",
+  "lastName": "Ricciardo",
+  "methodOfPayment": Object {
+    "description": "Cash",
+    "id": 910400001,
+    "label": "Cash",
+  },
+  "mobilePhone": "07722 123456",
+  "organisation": "Fishy Endeavours",
+  "paymentSource": "Post Office Sales",
+  "permitId": "test-permit-id",
+  "postcode": "BS9 1HJ",
+  "preferredMethodOfConfirmation": Object {
+    "description": "Email",
+    "id": 910400000,
+    "label": "Email",
+  },
+  "preferredMethodOfNewsletter": Object {
+    "description": "Prefer not to be contacted",
+    "id": 910400003,
+    "label": "Prefer not to be contacted",
+  },
+  "preferredMethodOfReminder": Object {
+    "description": "Text",
+    "id": 910400002,
+    "label": "Text",
+  },
+  "premises": "14 Howecroft Court",
+  "serialNumber": "14345-48457J",
+  "startDate": "2021-06-15",
+  "status": Object {
+    "description": "Needs Review",
+    "id": 910400000,
+    "label": "Needs Review",
+  },
+  "street": "Eastmead Lane",
+  "town": "Bristol",
+  "transactionDate": "2020-01-01T14:00:00Z",
+}
+`;
+
+exports[`pocl staging exception entity maps to dynamics 1`] = `
+Object {
+  "defra_amount": 30,
+  "defra_birthdate": "1989-07-01",
+  "defra_channelid": "948594",
+  "defra_concessions": "[{\\"type\\":\\"Blue Badge\\",\\"referenceNumber\\":123456789}]",
+  "defra_country": "GB",
+  "defra_datasource": 910400000,
+  "defra_emailaddress": "daniel-ricc@example.com",
+  "defra_firstname": "Daniel",
+  "defra_methodofpayment": 910400001,
+  "defra_mobilenumber": "07722 123456",
+  "defra_name": "Ricciardo",
+  "defra_organisation": "Fishy Endeavours",
+  "defra_paymentsource": "Post Office Sales",
+  "defra_permitid": "test-permit-id",
+  "defra_postcode": "BS9 1HJ",
+  "defra_preferredmethodofconfirmation": 910400000,
+  "defra_preferredmethodofnewsletter": 910400003,
+  "defra_preferredmethodofreminder": 910400002,
+  "defra_premises": "14 Howecroft Court",
+  "defra_serialnumber": "14345-48457J",
+  "defra_startdate": "2021-06-15",
+  "defra_status": 910400000,
+  "defra_street": "Eastmead Lane",
+  "defra_town": "Bristol",
+  "defra_transactiondate": "2020-01-01T14:00:00Z",
+}
+`;

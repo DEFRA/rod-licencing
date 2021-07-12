@@ -6991,6 +6991,147 @@
       ]
     },
     {
+      "Name": "defra_poclvalidationerrorstatus",
+      "MetadataId": "02ae6563-d6a6-4a70-b779-ec51150a0761",
+      "Options": [
+        {
+          "Value": 910400000,
+          "Color": "#0000ff",
+          "IsManaged": false,
+          "ExternalValue": null,
+          "ParentValues": [],
+          "MetadataId": null,
+          "HasChanged": null,
+          "Label": {
+            "LocalizedLabels": [
+              {
+                "Label": "Needs Review",
+                "LanguageCode": 1033,
+                "IsManaged": false,
+                "MetadataId": "a7a20998-96e0-4be7-a1ec-8eb214c0fe09",
+                "HasChanged": null
+              }
+            ],
+            "UserLocalizedLabel": {
+              "Label": "Needs Review",
+              "LanguageCode": 1033,
+              "IsManaged": false,
+              "MetadataId": "a7a20998-96e0-4be7-a1ec-8eb214c0fe09",
+              "HasChanged": null
+            }
+          },
+          "Description": {
+            "LocalizedLabels": [
+              {
+                "Label": "Needs Review",
+                "LanguageCode": 1033,
+                "IsManaged": false,
+                "MetadataId": "a6a20998-96e0-4be7-a1ec-8eb214c0fe09",
+                "HasChanged": null
+              }
+            ],
+            "UserLocalizedLabel": {
+              "Label": "Needs Review",
+              "LanguageCode": 1033,
+              "IsManaged": false,
+              "MetadataId": "a6a20998-96e0-4be7-a1ec-8eb214c0fe09",
+              "HasChanged": null
+            }
+          }
+        },
+        {
+          "Value": 910400001,
+          "Color": "#0000ff",
+          "IsManaged": false,
+          "ExternalValue": null,
+          "ParentValues": [],
+          "MetadataId": null,
+          "HasChanged": null,
+          "Label": {
+            "LocalizedLabels": [
+              {
+                "Label": "Ready for Processing",
+                "LanguageCode": 1033,
+                "IsManaged": false,
+                "MetadataId": "a1c3d566-d569-4e89-80aa-d533060af558",
+                "HasChanged": null
+              }
+            ],
+            "UserLocalizedLabel": {
+              "Label": "Ready for Processing",
+              "LanguageCode": 1033,
+              "IsManaged": false,
+              "MetadataId": "a1c3d566-d569-4e89-80aa-d533060af558",
+              "HasChanged": null
+            }
+          },
+          "Description": {
+            "LocalizedLabels": [
+              {
+                "Label": "Ready for Processing",
+                "LanguageCode": 1033,
+                "IsManaged": false,
+                "MetadataId": "a2c3d566-d569-4e89-80aa-d533060af558",
+                "HasChanged": null
+              }
+            ],
+            "UserLocalizedLabel": {
+              "Label": "Ready for Processing",
+              "LanguageCode": 1033,
+              "IsManaged": false,
+              "MetadataId": "a2c3d566-d569-4e89-80aa-d533060af558",
+              "HasChanged": null
+            }
+          }
+        },
+        {
+          "Value": 910400002,
+          "Color": "#0000ff",
+          "IsManaged": false,
+          "ExternalValue": null,
+          "ParentValues": [],
+          "MetadataId": null,
+          "HasChanged": null,
+          "Label": {
+            "LocalizedLabels": [
+              {
+                "Label": "Processed",
+                "LanguageCode": 1033,
+                "IsManaged": false,
+                "MetadataId": "39edc05d-f04c-45ed-af23-98dd05381435",
+                "HasChanged": null
+              }
+            ],
+            "UserLocalizedLabel": {
+              "Label": "Processed",
+              "LanguageCode": 1033,
+              "IsManaged": false,
+              "MetadataId": "39edc05d-f04c-45ed-af23-98dd05381435",
+              "HasChanged": null
+            }
+          },
+          "Description": {
+            "LocalizedLabels": [
+              {
+                "Label": "Processed",
+                "LanguageCode": 1033,
+                "IsManaged": false,
+                "MetadataId": "38edc05d-f04c-45ed-af23-98dd05381435",
+                "HasChanged": null
+              }
+            ],
+            "UserLocalizedLabel": {
+              "Label": "Processed",
+              "LanguageCode": 1033,
+              "IsManaged": false,
+              "MetadataId": "38edc05d-f04c-45ed-af23-98dd05381435",
+              "HasChanged": null
+            }
+          }
+        }
+      ]
+    },
+    {
       "Name": "defra_country",
       "MetadataId": "02ae6763-d6a6-4a70-b779-ec51150a0761",
       "Options": [

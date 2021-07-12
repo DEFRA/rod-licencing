@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exceptions service createDataValidationError maps the record data correctly 1`] = `
+Object {
+  "amount": 30,
+  "birthDate": "1989-07-01",
+  "channelId": "948594",
+  "concessions": "[{\\"type\\":\\"Blue Badge\\",\\"referenceNumber\\":\\"123456789\\"}]",
+  "country": "GB",
+  "dataSource": Object {
+    "description": "Post Office Sales",
+    "id": 910400000,
+    "label": "Post Office Sales",
+  },
+  "email": "daniel-ricc@example.com",
+  "firstName": "Daniel",
+  "lastName": "Ricciardo",
+  "methodOfPayment": Object {
+    "description": "Cash",
+    "id": 910400001,
+    "label": "Cash",
+  },
+  "mobilePhone": "07722 123456",
+  "organisation": "Fishy Endeavours",
+  "paymentSource": "Post Office Sales",
+  "permitId": "test-permit-id",
+  "postcode": "BS9 1HJ",
+  "preferredMethodOfConfirmation": Object {
+    "description": "Email",
+    "id": 910400000,
+    "label": "Email",
+  },
+  "preferredMethodOfNewsletter": Object {
+    "description": "Prefer not to be contacted",
+    "id": 910400003,
+    "label": "Prefer not to be contacted",
+  },
+  "preferredMethodOfReminder": Object {
+    "description": "Text",
+    "id": 910400002,
+    "label": "Text",
+  },
+  "premises": "14 Howecroft Court",
+  "serialNumber": "14345-48457J",
+  "startDate": "2021-06-15",
+  "status": Object {
+    "description": "Needs Review",
+    "id": 910400000,
+    "label": "Needs Review",
+  },
+  "street": "Eastmead Lane",
+  "town": "Bristol",
+  "transactionDate": undefined,
+}
+`;

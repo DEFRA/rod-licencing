@@ -1,10 +1,55 @@
-import { createStagingException, createStagingExceptionFromError, createTransactionFileException } from '../exceptions.service.js'
+import { createStagingException, createStagingExceptionFromError, createTransactionFileException, createDataValidationError } from '../exceptions.service.js'
 import { persist, PoclStagingException, StagingException } from '@defra-fish/dynamics-lib'
+import { PoclDataValidationError } from '../temp'
 
 jest.mock('@defra-fish/dynamics-lib', () => ({
   ...jest.requireActual('@defra-fish/dynamics-lib'),
   persist: jest.fn()
 }))
+
+const getDataValidationError = () => ({
+  id: 'test-id',
+  createTransactionPayload: {
+    dataSource: 'Post Office Sales',
+    serialNumber: '14345-48457J',
+    permissions: [{
+      licensee: {
+        firstName: 'Daniel',
+        lastName: 'Ricciardo',
+        organisation: 'Fishy Endeavours',
+        premises: '14 Howecroft Court',
+        street: 'Eastmead Lane',
+        town: 'Bristol',
+        postcode: 'BS9 1HJ',
+        country: 'GB',
+        birthDate: '1989-07-01',
+        email: 'daniel-ricc@example.com',
+        mobilePhone: '07722 123456',
+        preferredMethodOfNewsletter: 'Prefer not to be contacted',
+        preferredMethodOfConfirmation: 'Email',
+        preferredMethodOfReminder: 'Text'
+      },
+      permitId: 'test-permit-id',
+      startDate: '2021-06-15',
+      concessions: [{ type: 'Blue Badge', referenceNumber: '123456789' }]
+    }]
+  },
+  finaliseTransactionPayload: {
+    payment: {
+      timestamp: '2020-01-01T14:00:00Z',
+      amount: 30,
+      source: 'Post Office Sales',
+      channelId: '948594',
+      method: 'Cash'
+    }
+  },
+  stage: 'Staging',
+  createTransactionError: {
+    statusCode: 422,
+    error: 'Data validation error',
+    message: 'Error'
+  }
+})
 
 expect.extend({
   jsonMatching (received, ...matchers) {
@@ -30,7 +75,7 @@ expect.extend({
   }
 })
 
-describe('payment-journals service', () => {
+describe('exceptions service', () => {
   describe('createStagingException', () => {
     it('creates a staging exception entity in Dynamics', async () => {
       const stagingException = {
@@ -108,6 +153,22 @@ describe('payment-journals service', () => {
         })
       ])
       expect(result).toBeInstanceOf(PoclStagingException)
+    })
+  })
+
+  describe('createDataValidationError', () => {
+    let record, result
+    beforeEach(async () => {
+      record = getDataValidationError()
+      result = await createDataValidationError(record)
+    })
+
+    it('maps the record to an instance of PoclDataValidationError', () => {
+      expect(result).toBeInstanceOf(PoclDataValidationError)
+    })
+
+    it('maps the record data correctly', () => {
+      expect(result).toMatchSnapshot()
     })
   })
 })
